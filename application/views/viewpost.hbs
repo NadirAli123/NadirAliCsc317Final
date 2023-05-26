@@ -1,0 +1,68 @@
+{{!-- <body> --}}
+    {{log this}}
+    <div class="loginForm">
+    <video class="video-container" controls>
+        <source src="/{{currentPost.video}}" type="video/mp4" />
+    </video>
+    <h2>{{recentPost.title}}</h2>
+    <h5>{{currentPost.username}}</h5>
+    <h6>{{currentPost.createdAt}}</h6>
+    <p>{{this.description}}</p>
+    <h3>Comment Section</h3>
+    <style>
+    .comment-button {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    </style>
+    <div>
+        <form action="/posts/{{currentPost.id}}"> 
+            <textarea id="comment-text"></textarea>
+            <i class="comment-button" id="comment-buttons" postId="{{recentPost.id}}">Comment</i>
+        </form>
+    </div>
+    <div class="comments">
+        {{#each currentPost.comments}}
+            <div class="comment">
+                <strong class="comment-author">
+                    {{this.username}}
+                </strong>
+                <span class="comment-date">{{formDateString this.createdAt}}</span>
+                <div class="comment-text">{{this.comment}}</div>
+            </div>/
+        {{/each}}
+        <script>
+        document.getElementById('comment-buttons').addEventListener('click', function(ev){
+        let commentText = document.getElementById('comment-text').value;
+
+        if(!commentText) return;
+            var postId = ev.currentTarget.datas
+
+            fetch("/comments/create",{
+                method: "POST",
+                headers: {
+                   "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    postId: postId,
+                    comment: commentText
+                })
+            
+
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+        /*console.log(ev.currentTarget.dataset.postid);
+        console.log("Current postId: ", {{currentPost.id}})*/
+        });
+    </script>
+    </div>
+    </div>

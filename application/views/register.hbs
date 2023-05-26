@@ -1,0 +1,46 @@
+<body>
+    
+       
+            
+                <form class="form" id="register_form" 
+                action="/users/register"
+                method="POST"
+                
+                enctype="application/x-www-form-urlencoded">
+                 <div class="loginForm">
+                <form action="#" method = "post">
+                    <h7>Registration Here!</h7>
+                    <p>Username </p>   
+                    <input type="text" placeholder="Enter Username" name="username" pattern="[a-zA-Z].{3,}"  autocomplete="off" title="Must be 3 charecters or longer. Needs to begin with a-z/A-Z" required>
+
+
+                    <p>Email </p>   
+                    <input type="email" placeholder="Enter Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required >  
+                    <div>
+                        <p>Password </p> 
+                        <input type="password" placeholder="Enter Password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\w.!#$%&*+\-/=?\^`{|}~]).{8,}"
+                        title="Must contain at least one number and one uppercase and lowercase letter, at least 8 or more characters, and
+                        at least one special character (/,*,-,+,!,@,#,$,^,&,~,[,])"  required>
+                    </div> 
+                        <p>Confirm Password </p>
+                        <input type="password" placeholder="Confirm Password" name="cpassword" id="cpassword" required> 
+
+                        <div class="check_box">
+                        <input type="checkbox" id="verify_age" value="verify_age"  required>I am 13 years or older</input>
+                        <input type="checkbox" id="TOS" value="TOS"  required>
+                        <a class="tos" href="https://www.google.com/" title="Please click the terms and services" required> TOS</a></input>
+                        
+                </div> 
+                <!-- onclick="checkpassword()"  -->
+                
+                    <button class="registration_button" type="submit" id="r_submit" >Submit</button>
+                    
+                    <p>Already have an account? <a class="redirect" href="/login">Login</a></p>
+                    </form>
+                    
+                </form>
+                </div>
+            
+        
+</body>
+</html>
