@@ -10,13 +10,14 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+| Student Name  | Nadir Ali     |
+| Student ID    | 921040182     |
+| Student Email | nali1@sfsu.edu|
 
 
 
 # Build/Run Instructions
+Based off Lecture videos. Pictures and videos in public folder under 'videos' and 'IMG'
 
 ## Build Instructions
 1. steps here
